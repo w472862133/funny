@@ -424,7 +424,7 @@
             },
             created: function() {
                 var t = this
-                  , s = "".concat(window.location.protocol, "//").concat(window.location.host).concat("/ccnu/tv");
+                  , s = "".concat(window.location.protocol, "//").concat(window.location.host).concat("/tv");
                 d.a.get("".concat(s, "/info")).then((function(s) {
                     s.data && (t.info = s.data)
                 }
