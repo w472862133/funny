@@ -425,13 +425,14 @@
             created: function() {
                 var t = this
                   , s = "".concat(window.location.protocol, "//").concat(window.location.host).concat("/tv");
-                d.a.get("".concat(s, "/info")).then((function(s) {
-                    s.data && (t.info = s.data)
-                }
-                )).catch((function(t) {
-                    console.log(t)
-                }
-                )),
+                               #d.a.get("".concat(s, "/info")).then((function(s) {
+                 #   s.data && (t.info = s.data)
+                #}
+                #)).catch((function(t) {
+                 #   console.log(t)
+                #}
+                #)),
+				t.info = {"code":"5KXDXT6B","head_tips":"\u8138\u90fd\u90a3\u4e48\u5927\u4e86\uff0c\u8fd8\u60f3\u559d\u5976\u8336....","name":"\u5916\u5356\u8fd9\u6837\u5403\u771f\u4fbf\u5b9c~","qrcode":"naicha.jpg","qrcode_on_left":"naicha.jpg","tail_desc":""}
                 d.a.get("".concat(s, "/media")).then((function(s) {
                     s.data && s.data.length > 0 && (t.mediaList = s.data,
                     t.setupPlayer())
