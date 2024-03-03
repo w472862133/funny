@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>dear sunny</title>
+        <link rel="stylesheet" href="love.css">
+		<script src="js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript">
+        /* 鼠标特效 */
+        var a_idx = 0;
+        jQuery(document).ready(function($) {
+            $("body").click(function(e) {
+                var a = new Array("😃","😚","😍","😘","😎","❤", "小可爱","吃货~","❤");
+                var $i = $("<span/>").text(a[a_idx]);
+                a_idx = (a_idx + 1) % a.length;
+                var x = e.pageX,
+                    y = e.pageY;
+                $i.css({
+                    "z-index":999999999999999999999999999999999999999999999999999999999999999999999,
+                    "top": y - 20,
+                    "left": x,
+					"font-size": "16px",
+                    "position": "absolute",
+                    "font-weight": "bold",
+                    "color": "#8e43e7"
+                });
+                $("body").append($i);
+                $i.animate({
+                        "top": y - 180,
+                        "opacity": 0
+                    },
+                    1500,
+                    function() {
+                        $i.remove();
+                    });
+            });
+        });
+    </script>
+        <script>
+		
+            var ok = "给小姐姐打call，奥利给~";
+            var p = "小姐姐,关注你好几天了~";
+            var h1 = "给我撩下好麽~";
+            var no = ["房子写你名", "保大", "我妈会游泳", "饭我做", "菜我烧", "衣服我洗", "家务我全包"];
+            var data = undefined
+            if (data) {
+                var result = JSON.parse(data);
+                if (result.no != undefined) {
+                    no = result.no;
+                }
+                ;if (result.ok != undefined) {
+                    ok = unescape(result.ok);
+                }
+                ;if (result.p != undefined) {
+                    p = unescape(result.p);
+                }
+                ;if (result.h1 != undefined) {
+                    h1 = unescape(result.h1);
+                }
+                ;
+            }
+        </script>
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement
+                  , resizeEvt = 'orientationchange'in window ? 'orientationchange' : 'resize'
+                  , recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth)
+                        return;
+                    if (clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+                if (!doc.addEventListener)
+                    return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            }
+            )(document, window);
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="left">
+                <p>
+                    <script>
+                        document.write(p)
+                    </script>
+                </p>
+                <h1>
+                    <script>
+                        document.write(h1)
+                    </script>
+                </h1>
+            </div>
+			<!--<img id="pic" class="pic" src = "https://blog.quietguoguo.com/love/lovebox/img/lovexiaojiejie.png">-->
+			<img id="pic" class="pic" src = "love.jpg">
+        </div>
+        <div class="button-box">
+            <button id="ok">好</button>
+            <button id="no">不好</button>
+        </div>
+    </body>
+    <script>
+		(function(){
+        //先判断是否为微信浏览器
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            //重写alert方法，alert()方法重写，不能传多余参数
+            window.alert = function(name){
+                var iframe = document.createElement("IFRAME");
+                iframe.style.display="none";
+                iframe.setAttribute("src", 'data:text/plain');
+                document.documentElement.appendChild(iframe);
+                window.frames[0].window.alert(name);
+                iframe.parentNode.removeChild(iframe);
+            }
+        }
+    })();
+        const clickOk = document.querySelector('#ok');
+        const clickNo = document.querySelector('#no');
+        clickOk.onclick = function() {
+            alert(ok);
+        }
+        clickNo.onclick = function() {
+            alert(unescape(getmsg(no)));
+        }
+        var l = no.length;
+        var i = 0;
+		var kcount = 0;
+		var shenjio = ["凉凉，心情很不美~", "啥也不知道，啥也不敢问~", "你怎么这个样子~","你真的忍心么~"];
+        function getmsg(arr) {
+            if (i > l - 1) {
+				if(kcount > 3)
+					return "你真的忍心么~";
+				else
+					return shenjio[kcount++];
+            }
+            return arr[i++]
+        }
+    </script>
+</html>
