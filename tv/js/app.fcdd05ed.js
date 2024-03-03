@@ -425,15 +425,9 @@
             created: function() {
                 var t = this
                   , s = "".concat(window.location.protocol, "//").concat(window.location.host).concat("/tv");
-				t.info = {"code":"5KXDXT6B","head_tips":"\u8138\u90fd\u90a3\u4e48\u5927\u4e86\uff0c\u8fd8\u60f3\u559d\u5976\u8336....","name":"\u5916\u5356\u8fd9\u6837\u5403\u771f\u4fbf\u5b9c~","qrcode":"naicha.jpg","qrcode_on_left":"naicha.jpg","tail_desc":""}
-                d.a.get("".concat(s, "/media")).then((function(s) {
-                    s.data && s.data.length > 0 && (t.mediaList = s.data,
-                    t.setupPlayer())
-                }
-                )).catch((function(t) {
-                    console.log(t)
-                }
-                ))
+				t.info = {"code":"5KXDXT6B","head_tips":"\u8138\u90fd\u90a3\u4e48\u5927\u4e86\uff0c\u8fd8\u60f3\u559d\u5976\u8336....","name":"\u5916\u5356\u8fd9\u6837\u5403\u771f\u4fbf\u5b9c~","qrcode":"naicha.jpg","qrcode_on_left":"naicha.jpg","tail_desc":""};
+				t.mediaList = [{"category":"animation","name":"Doraemon","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/duolaameng/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"tv","name":"80s","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/01/play.m3u8","https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/02/play.m3u8","https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/03/play.m3u8","https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/04/play.m3u8","https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/05/play.m3u8","https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/shierdameinv/06/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"animation","name":"AstroBoy","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/tiebiatongmu/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"animation","name":"Ultraman","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/outman/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"animation","name":"Crayon","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/labixiaoxin/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"animation","name":"DragonBall","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/longzhu/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"first"},{"category":"music_video","name":"Jay","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/zhoujielun/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"second"},{"category":"animation","name":"BlackCat","resource":["https://cdn.jsdelivr.net/gh/knob16/resource@1.1/media/heimaojingzhang/01/play.m3u8"],"type":"application/x-mpegURL","use_on":"other"}];
+                t.setupPlayer();
             },
             beforeDestroy: function() {
                 this.player && this.player.dispose()
