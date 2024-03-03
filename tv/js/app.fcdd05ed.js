@@ -425,14 +425,14 @@
             created: function() {
                 var t = this
                   , s = "".concat(window.location.protocol, "//").concat(window.location.host).concat("/tv");
-                d.a.get("".concat(s, "/info")).then((function(s) {
+                d.a.get("".concat(s, "/info.js")).then((function(s) {
                     s.data && (t.info = s.data)
                 }
                 )).catch((function(t) {
                     console.log(t)
                 }
                 )),
-                d.a.get("".concat(s, "/media")).then((function(s) {
+                d.a.get("".concat(s, "/media.js")).then((function(s) {
                     s.data && s.data.length > 0 && (t.mediaList = s.data,
                     t.setupPlayer())
                 }
